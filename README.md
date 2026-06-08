@@ -104,7 +104,7 @@ NEZHA_SERVER=dash.example.com:443 NEZHA_SECRET=xxx NEZHA_TLS=true ./pangu-agent
 # 使用同目录默认配置文件config.yml
 ./pangu-agent
 
-# 使用别动目录配置文件
+# 使用别的目录配置文件
 ./pangu-agent --config /etc/pangu/config.yml
 
 # 查看帮助
