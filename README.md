@@ -2,7 +2,7 @@
 
 哪吒监控 Agent 的 Go 单文件实现，**纯标准库**，无任何外部依赖。
 
-仅为哪吒V1客户端的精简版，仅为适配anaconda.com,仅为装逼而装逼，都是为了挂针
+仅为哪吒V1客户端的精简版，仅为适配anaconda.com, 仅为装逼而装逼，都是为了挂针
 
 原版哪吒客户端地址： https://github.com/nezhahq/agent
 
