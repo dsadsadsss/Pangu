@@ -1,6 +1,10 @@
 # 盘古 Agent · Pangu2.2.0
 
-哪吒监控 Agent 的 Go 单文件实现，**纯标准库**，无任何外部依赖，支持交叉编译到 13 个平台。
+哪吒监控 Agent 的 Go 单文件实现，**纯标准库**，无任何外部依赖。
+
+仅为哪吒V1客户端的精简版，仅为适配anaconda.com
+
+原版哪吒客户端地址： https://github.com/nezhahq/agent
 
 ## 特性
 
@@ -173,58 +177,6 @@ GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o p
 # macOS Apple Silicon
 GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o pangu-agent_darwin_arm64 .
 ```
-
-### GitHub Actions 自动构建
-
-推送 tag 即可触发全平台构建并自动发布 Release：
-
-```bash
-git tag v2.2.0
-git push --tags
-```
-
-构建结果会出现在 Actions → Build Pangu Agent，Release 页面可直接下载。
-
----
-
-## 支持平台
-
-| 系统 | 架构 | 文件名后缀 |
-|---|---|---|
-| Linux | amd64 | `linux_amd64` |
-| Linux | arm64 | `linux_arm64` |
-| Linux | armv7 | `linux_armv7` |
-| Linux | 386 | `linux_386` |
-| Linux | mips (softfloat) | `linux_mips_softfloat` |
-| Linux | mipsle (softfloat) | `linux_mipsle_softfloat` |
-| Linux | mips64 | `linux_mips64` |
-| Linux | mips64le | `linux_mips64le` |
-| Linux | riscv64 | `linux_riscv64` |
-| Windows | amd64 | `windows_amd64.exe` |
-| Windows | arm64 | `windows_arm64.exe` |
-| macOS | amd64 | `darwin_amd64` |
-| macOS | arm64 (M系列) | `darwin_arm64` |
-
----
-
-## 项目结构
-
-```
-.
-├── main.go         # 入口，信号处理
-├── config.go       # 配置加载（手写 YAML 解析，无外部依赖）
-├── proto.go        # protobuf wire format 编解码
-├── grpc.go         # gRPC over HTTP/2 传输层
-├── client.go       # 连接管理、重连、任务流、状态流
-├── monitor.go      # 系统监控（直读 /proc）
-├── task.go         # 任务处理
-├── disk_unix.go    # 磁盘用量（Unix）
-├── disk_windows.go # 磁盘用量（Windows，stub）
-├── util.go         # UUID、logger
-└── go.mod          # 无外部依赖
-```
-
----
 
 ## 常见问题
 
