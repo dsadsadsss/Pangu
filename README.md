@@ -1,1 +1,1 @@
-# Pangu
+# nezah-go
